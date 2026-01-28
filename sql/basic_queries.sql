@@ -44,3 +44,31 @@ ORDER by count(sales.Orders.OrderID) DESC
 -- Include customers who placed zero orders.
 -- Sort by the number of orders (descending), then by customer name (ascending).
 
+select Sales.Customers.CustomerName as 'Name of customer', count(Sales.Orders.OrderID)
+from Sales.Customers LEFT join sales.Orders on Sales.Customers.CustomerID = sales.Orders.CustomerID
+GROUP BY Sales.Customers.CustomerName
+order by count(Sales.Orders.OrderID) DESC, Sales.Customers.CustomerName
+
+-- Task 8. Retrieve the total order value for each order.
+
+select OrderID, sum(Quantity*UnitPrice) as TotalUnitValue
+from Sales.OrderLines
+GROUP BY OrderID
+
+-- Task 9. Retrieve the total order value for each order,
+-- including the order date.
+
+select OL.OrderID, O.OrderDate, sum(Quantity*UnitPrice) as TotalUnitValue
+from Sales.OrderLines OL join Sales.Orders O on OL.OrderID = O.OrderID
+GROUP BY OL.OrderID, O.OrderDate
+
+-- Task 10. Retrieve the average order value per year.
+
+SELECT Oyear, AVG(TotalUnitValue)
+from (select YEAR(O.OrderDate) as Oyear, o.OrderID, sum(Quantity*UnitPrice) as TotalUnitValue 
+from Sales.Orders O join Sales.OrderLines OL on O.OrderID = OL.OrderID
+GROUP BY o.OrderID, YEAR(O.OrderDate)) t
+GROUP BY Oyear
+ORDER BY Oyear
+
+-- Task 11. Retrieve the top 5 customers by total order value.

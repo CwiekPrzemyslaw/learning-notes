@@ -72,3 +72,9 @@ GROUP BY Oyear
 ORDER BY Oyear
 
 -- Task 11. Retrieve the top 5 customers by total order value.
+
+select top 5 TotalOrderValue, NameC
+from (select C.CustomerName as NameC, sum(Quantity*UnitPrice) as TotalOrderValue
+from sales.OrderLines OL JOIN sales.Orders O on OL.OrderID = O.OrderID join Sales.Customers C on O.CustomerID = C.CustomerID
+GROUP BY C.CustomerName) t
+ORDER BY TotalOrderValue DESC

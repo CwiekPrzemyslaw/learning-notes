@@ -1,0 +1,112 @@
+EXCEL PRACTICE LAB – PROCUREMENT & ANALYTICS
+
+Dataset:
+- Orders dataset containing supplier, category, country, unit price, quantity, currency and order date
+- Data stored as an Excel Table (structured references)
+- All calculations designed to update automatically when new rows are added
+
+==================================================
+Calculated Columns & Business Logic
+==================================================
+
+TASK 1
+Create a calculated column representing the total value of each order.
+- Calculation must be performed per row
+- Solution must automatically apply to new records
+
+Expected outcome:
+Each order has a correctly calculated total order value.
+
+--------------------------------------------------
+
+TASK 2
+Create a calculated column that classifies orders into two size groups.
+- Classification based on a numeric threshold (2000)
+- Output must be text-based
+- Logic must update dynamically when data changes
+
+Expected outcome:
+Each order is assigned to the correct size category.
+
+--------------------------------------------------
+
+TASK 3
+Create a calculated column that extracts the month from the order date.
+- Output must be numeric (1–12)
+- Must work for any valid date
+
+Expected outcome:
+Each order contains a correctly derived month value.
+
+==================================================
+Analytical Thinking (No Pivot Tables)
+==================================================
+
+TASK 4
+Identify the supplier with the highest total order value.
+- Solution must be fully dynamic
+- Result must update when new data is added
+
+Expected outcome:
+The top supplier is correctly identified based on aggregated order value.
+
+--------------------------------------------------
+
+TASK 5
+Calculate the average unit price for a selected product category.
+- Category must not be hard-coded
+- Solution must support changing the category via user input (e.g. selection list)
+
+Expected outcome:
+Average unit price dynamically updates based on the selected category.
+
+==================================================
+Aggregation & Data Structure
+==================================================
+
+TASK 6
+Create an aggregated view of total order value per supplier.
+
+Implementation variants:
+A) Formula-based aggregation
+   - Aggregation built using Excel functions
+   - Fully dynamic and parameter-independent
+
+B) Pivot table aggregation
+   - Supplier as rows
+   - Total order value as aggregated metric
+   - Automatically updates with data changes
+
+Expected outcome:
+A clear summary showing total order value per supplier.
+Both approaches produce consistent results.
+
+--------------------------------------------------
+
+TASK 7
+Extend the aggregated view to support additional analytical dimensions.
+- Product category breakdown
+- Country-level filtering
+
+Implementation:
+- Implemented using pivot tables (business-preferred approach)
+
+Expected outcome:
+Aggregated results can be dynamically adjusted by category and country.
+
+==================================================
+Data Readability & Insight
+==================================================
+
+TASK 8
+Visually highlight orders that meet a defined business condition.
+- Highlighting must be automatic
+- Source data must remain unchanged
+- Solution must improve readability and insight
+
+Expected outcome:
+Key orders are immediately visible through conditional formatting.
+
+==================================================
+END
+==================================================
